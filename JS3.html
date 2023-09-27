@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS3</title>
+
+    <style>
+        label, p{
+            font-size: medium;
+        }
+        button {
+            margin-right: 10px; 
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            border-color: #00d5ff; /* Change to your desired hover color */
+            border-radius: 3px;
+        }
+        .box {
+            border: 1.5px solid black;
+            padding: 10px;
+            border-radius: 0px;
+            height: 180px;
+            width: 300px;
+            margin: 0 auto; 
+        }
+        input {
+            border: 1px solid grey;
+            padding: 5px;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="box">
+        <label for="1stnum">1st Number :</label>
+        <input type="number" id="1stnum">
+        <br><br>
+        <label for="2ndnum">2nd Number :</label>
+        <input type="number" id="2ndnum">
+        <br><br>
+        <button onclick="multiplyNumbers()">Multiply</button>
+        <button onclick="divideNumbers()">Divide</button>
+        <br><br>
+        <p>The Result Is: <br><span id="result"></span></p>
+    </div>
+
+    <script>
+        function multiplyNumbers() {
+            const firstNum = parseFloat(document.getElementById('1stnum').value);
+            const secondNum = parseFloat(document.getElementById('2ndnum').value);
+            const resultElement = document.getElementById('result');
+
+            if (!isNaN(firstNum) && !isNaN(secondNum)) {
+                const multiplicationResult = firstNum * secondNum;
+                resultElement.textContent = multiplicationResult;
+            } else {
+                resultElement.textContent = 'Please enter valid numbers.';
+            }
+        }
+
+        function divideNumbers() {
+            const firstNum = parseFloat(document.getElementById('1stnum').value);
+            const secondNum = parseFloat(document.getElementById('2ndnum').value);
+            const resultElement = document.getElementById('result');
+
+            if (!isNaN(firstNum) && !isNaN(secondNum)) {
+                if (secondNum !== 0) {
+                    const divisionResult = firstNum / secondNum;
+                    resultElement.textContent = divisionResult;
+                } else {
+                    resultElement.textContent = 'Division by zero is not allowed.';
+                }
+            } else {
+                resultElement.textContent = 'Please enter valid numbers.';
+            }
+        }
+    </script>
+</body>
+</html>
